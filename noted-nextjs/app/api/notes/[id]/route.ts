@@ -67,7 +67,7 @@ export async function PUT(req: Request, context: { params:any }) {
 }
 
 // Handle DELETE request to delete a specific note
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(req: Request, { params }: { params: any }) {
   const id = params.id;
 
   if (!id) {
