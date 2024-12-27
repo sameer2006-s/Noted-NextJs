@@ -32,8 +32,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // }
 
 // Handle PUT request to update a specific note
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-  const id =   params.id;
+export async function PUT(req: Request, context: { params: { id: string } }) {
+  const id =  context.params.id;
 
   if (!id) {
     return NextResponse.json({ message: 'Note ID is required' }, { status: 400 });
