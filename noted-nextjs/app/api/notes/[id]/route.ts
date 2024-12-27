@@ -7,29 +7,29 @@ const supabaseKey = process.env.SUPABASE_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Handle GET request for a specific note
-export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const {id} =  await params;
+// export async function GET(req: Request, { params }: { params: { id: string } }) {
+//   const {id} =  await params;
 
-  if (!id) {
-    return NextResponse.json({ message: 'Note ID is required' }, { status: 400 });
-  }
+//   if (!id) {
+//     return NextResponse.json({ message: 'Note ID is required' }, { status: 400 });
+//   }
 
-  try {
-    const { data, error } = await supabase.from('notes').select('*').eq('id', id).single();
+//   try {
+//     const { data, error } = await supabase.from('notes').select('*').eq('id', id).single();
 
-    if (error) {
-      return NextResponse.json({ message: 'Error fetching note', error }, { status: 500 });
-    }
+//     if (error) {
+//       return NextResponse.json({ message: 'Error fetching note', error }, { status: 500 });
+//     }
 
-    if (!data) {
-      return NextResponse.json({ message: 'Note not found' }, { status: 404 });
-    }
+//     if (!data) {
+//       return NextResponse.json({ message: 'Note not found' }, { status: 404 });
+//     }
 
-    return NextResponse.json(data, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ message: 'Unexpected error', error: err }, { status: 500 });
-  }
-}
+//     return NextResponse.json(data, { status: 200 });
+//   } catch (err) {
+//     return NextResponse.json({ message: 'Unexpected error', error: err }, { status: 500 });
+//   }
+// }
 
 // Handle PUT request to update a specific note
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
