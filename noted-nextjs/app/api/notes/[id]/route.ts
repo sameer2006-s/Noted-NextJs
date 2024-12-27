@@ -32,7 +32,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // }
 
 // Handle PUT request to update a specific note
-export async function PUT(req: Request, context: { params: { id: string } }) {
+export async function PUT(req: Request, context: { params:any }) {
   const id =  context.params.id;
 
   if (!id) {
