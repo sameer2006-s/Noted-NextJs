@@ -36,7 +36,6 @@ export default function Home() {
             method: 'POST',
              headers: {
               'Content-Type': 'application/json',
-            //   'Authorization': `Bearer your-anon-key` // Supabase API Key
              },
             body: JSON.stringify({ title: newNote.title, content: newNote.content })
           });
@@ -55,9 +54,6 @@ export default function Home() {
       setNotes([...notes, newNote]);
       setTitle("");
       setContent("");
-
-    //   const randomIndex = Math.floor(Math.random() * images.length); // Get a random index
-    // setCurrentImage(images[randomIndex]); // Set the selected random image
 
       setShowPhoto(true);
     setTimeout(() => {
@@ -127,10 +123,6 @@ export default function Home() {
       try {
         const response = await fetch(`/api/notes/${noteId}`, {
           method: 'DELETE',
-          // headers: {
-          //   'Content-Type': 'application/json',
-          //   'Authorization': `Bearer your-anon-key` // Supabase API Key
-          // },
         });
     
         if (response.ok) {
@@ -249,7 +241,6 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <CardTitle className="pb-3 lg:max-w-[500px] max-w-[180px] break-words">{note.title}</CardTitle>
                     <div className="flex flex-row gap-2">
-                      <div>{note.id}</div>
                       <button onClick={() => handleSelection(note)}>
                         <Edit2Icon className="w-4 h-4 text-gray-500 hover:text-blue-500 transition-all" />
                       </button>
